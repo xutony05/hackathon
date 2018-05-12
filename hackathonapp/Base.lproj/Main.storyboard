@@ -15,7 +15,7 @@
         <!--Menu View Controller-->
         <scene sceneID="Q2A-3q-DUo">
             <objects>
-                <viewController id="03z-PA-43w" customClass="MenuViewController" customModule="FirebaseApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="03z-PA-43w" customClass="MenuViewController" customModule="hackathonapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SgK-07-dAp"/>
                         <viewControllerLayoutGuide type="bottom" id="Cpm-am-BaY"/>
@@ -36,7 +36,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mmy-oS-YCe" customClass="RoundedWhiteButton" customModule="FirebaseApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mmy-oS-YCe" customClass="RoundedWhiteButton" customModule="hackathonapp" customModuleProvider="target">
                                 <rect key="frame" x="24" y="499" width="327" height="64"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -50,7 +50,7 @@
                                     <segue destination="FFc-3r-OmC" kind="show" animates="NO" id="lqz-53-aWy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNB-aC-CcQ" customClass="RoundedWhiteButton" customModule="FirebaseApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNB-aC-CcQ" customClass="RoundedWhiteButton" customModule="hackathonapp" customModuleProvider="target">
                                 <rect key="frame" x="24" y="579" width="327" height="64"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -86,7 +86,6 @@
                     <connections>
                         <outlet property="loginButton" destination="Mmy-oS-YCe" id="uuo-zb-dLa"/>
                         <outlet property="signupButton" destination="cNB-aC-CcQ" id="z1r-VE-PjA"/>
-                        <segue destination="2NJ-Ez-dgw" kind="show" identifier="toMainScreen" animates="NO" id="V24-4G-iZ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F1E-TY-0EL" sceneMemberID="firstResponder"/>
@@ -96,7 +95,7 @@
         <!--Login View Controller-->
         <scene sceneID="JFM-dI-rFr">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="FFc-3r-OmC" customClass="LoginViewController" customModule="FirebaseApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="FFc-3r-OmC" customClass="LoginViewController" customModule="hackathonapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IZe-z6-qsV"/>
                         <viewControllerLayoutGuide type="bottom" id="fOg-AZ-vLR"/>
@@ -240,7 +239,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="JlO-1T-zAW">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="X9l-Fi-RcE" customClass="SignUpViewController" customModule="FirebaseApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="X9l-Fi-RcE" customClass="SignUpViewController" customModule="hackathonapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fpY-RA-q0B"/>
                         <viewControllerLayoutGuide type="bottom" id="Lmo-5g-css"/>
@@ -407,12 +406,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRT-ar-Xgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2644" y="385"/>
+            <point key="canvasLocation" x="2644" y="494"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="yr4-zp-xuY">
             <objects>
-                <viewController id="x8e-xB-hTe" sceneMemberID="viewController">
+                <viewController id="x8e-xB-hTe" customClass="HomeViewController" customModule="hackathonapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2wM-DM-lUE"/>
                         <viewControllerLayoutGuide type="bottom" id="JML-Za-VVa"/>
@@ -435,16 +434,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XYJ-N7-pF7"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HDq-jH-dwW"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="eC6-a8-Vdk"/>
+                    <navigationItem key="navigationItem" id="HDq-jH-dwW">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="1Pc-9g-Q8P">
+                            <connections>
+                                <action selector="handleLogout:" destination="x8e-xB-hTe" id="MP2-HA-GDY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcf-T4-BjX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4183" y="113"/>
+            <point key="canvasLocation" x="5120.8000000000002" y="112.89355322338831"/>
         </scene>
         <!--InitialViewController-->
         <scene sceneID="DeC-ka-A4m">
             <objects>
-                <viewController title="InitialViewController" id="p5O-Rf-mGQ" customClass="InitialViewController" customModule="FirebaseApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="InitialViewController" id="p5O-Rf-mGQ" customClass="InitialViewController" customModule="hackathonapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vwt-MX-8hc"/>
                         <viewControllerLayoutGuide type="bottom" id="aWQ-bm-e5w"/>
@@ -493,10 +499,11 @@
             </objects>
             <point key="canvasLocation" x="1031" y="113"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="d8Z-DA-1Su">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2NJ-Ez-dgw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="5qg-Mz-gYA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B4Y-63-Ipf">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -509,10 +516,31 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oqs-vv-SgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3430" y="113"/>
+            <point key="canvasLocation" x="4279" y="-1"/>
+        </scene>
+        <!--MainTabBarController-->
+        <scene sceneID="V5G-sk-Ncm">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarController" title="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mhp-8L-tTf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CAN-KL-JD4">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2NJ-Ez-dgw" kind="relationship" relationship="viewControllers" id="YQh-hi-tX3"/>
+                        <segue destination="x8e-xB-hTe" kind="relationship" relationship="viewControllers" id="vnB-8b-b2n"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJW-dS-kUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3429.5999999999999" y="112.89355322338831"/>
         </scene>
     </scenes>
     <resources>
         <image name="backArrow" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vnB-8b-b2n"/>
+    </inferredMetricsTieBreakers>
 </document>

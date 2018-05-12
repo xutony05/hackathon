@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseAuth
+
 
 class SignUpViewController:UIViewController, UITextFieldDelegate {
     
@@ -156,9 +158,39 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         continueButton.setTitle("", for: .normal)
         activityView.startAnimating()
         
+    
+ 
+        Auth.auth().createUser(withEmail: email, password: pass) { user, error in
+            if error == nil && user != nil {
+                print("User created!")
+                
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = username
+                changeRequest?.commitChanges { error in
+                    if error == nil {
+                        print ("User Display changed")
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    
+                }
+                
+            } else {
+                self.resetForm()
+            }
+            
+        }
+        }
+    func resetForm() {
+        let alert = UIAlertController(title: "Error signing up", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
         
+        setContinueButton(enabled: true)
+        continueButton.setTitle("Continue", for: .normal)
+        activityView.stopAnimating()
+    }
     }
 
     
 
-}
+
