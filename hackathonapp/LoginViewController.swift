@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
-
+var emailLLL = ""
 class LoginViewController:UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
@@ -148,6 +148,7 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         
         Auth.auth().signIn(withEmail: email, password: pass) { user, error in
             if error == nil && user != nil {
+                emailLLL=email
                 self.dismiss(animated: false, completion: nil)
             } else {
                 print("Error logging in: \(error!.localizedDescription)")

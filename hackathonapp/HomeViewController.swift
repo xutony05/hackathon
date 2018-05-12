@@ -10,21 +10,52 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    var ref: DatabaseReference?
+    var databaseHandle:DatabaseHandle?
+    
+    
+    var locationName = [String]()
+    //let locationName = ["Canada's Wonderland", "Theme Park", "Rollercoasters", "test"]
+    let locationImage = [UIImage(named: "Wonderland"),UIImage(named: "bahamas")]//,UIImage(named: "maxresdefault"),UIImage(named: "Wonderland")]
+    
+    let locationDescription = ["Best theme park in North America!", "An exhilirating watery retreat"]//, "An amazing exploration event in Hawaii", "testing description"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
+        databaseHandle = ref?.observe(.childAdded, with: { (snapshot) in
+            let post = snapshot.value as? [String : AnyObject] ?? [:]
+            var name = post.description.split(separator: "&")[3]
+            var value = post.description.split(separator: "&")[1]
+
+            if (name == "Recommendation" && value.split(separator: "|")[0] == emailLLL)
+            {
+                var Event = value.split(separator: "|")[2]
+                var XP = value.split(separator: "|")[3]
+                var Desc = value.split(separator: "|")[4]
+                self.locationName.append(String(Event))
+                
+               // self.locationName[0]=String(Event)
+               
+            }
+            
+        })
+        
+//        self.locationName.append(String("ass"))
+//         self.locationName.append(String("ass2"))
         
     }
+    
+    
     @IBAction func handleLogout(_ target: UIBarButtonItem) {
         try! Auth.auth().signOut()
     }
-    let locationName = ["Canada's Wonderland", "Theme Park", "Rollercoasters"]
-    let locationImage = [UIImage(named: "wonderland"),UIImage(named: "bahamas"),UIImage(named: "maxresdefault")]
+   
     
-    let locationDescription = ["Best theme park in North America!", "An exhilirating watery retreat", "An amazing exploration event in Hawaii"]
-    
+   
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

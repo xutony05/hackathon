@@ -8,5 +8,5 @@ target 'hackathonapp' do
   # Pods for hackathonapp
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-
+  pod 'Firebase/Database'
 end
