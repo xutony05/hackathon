@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>583735825761-tg8mnhl9ffhv09ko3q2t08915dsv49co.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.583735825761-tg8mnhl9ffhv09ko3q2t08915dsv49co</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCioemAZq8FS6em-gaJSa4AHN1byQ2-xsM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>583735825761</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.wjhbrendan.hackathonapp</string>
+	<key>PROJECT_ID</key>
+	<string>hackathon-12ecd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hackathon-12ecd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:583735825761:ios:510c985c4939d6a4</string>
+	<key>DATABASE_URL</key>
+	<string>https://hackathon-12ecd.firebaseio.com</string>
+</dict>
+</plist>
