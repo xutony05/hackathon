@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
-
+import FirebaseDatabase
 
 class SignUpViewController:UIViewController, UITextFieldDelegate {
     
@@ -21,10 +21,11 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
     
     var continueButton:RoundedWhiteButton!
     var activityView:UIActivityIndicatorView!
+    var ref: DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ref = Database.database().reference()
         view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         
         continueButton = RoundedWhiteButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
@@ -157,12 +158,23 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         setContinueButton(enabled: false)
         continueButton.setTitle("", for: .normal)
         activityView.startAnimating()
-        
-    
- 
+        if pass.count > 5 {
+            let newUse = self.ref!.childByAutoId()
+            newUse.setValue("Name")
+            newUse.setValue("Value")
+            newUse.child("Name").setValue("&User&")
+            let tempString = "&" + username + "|" + email + "|" + username + "|" + "LASTNAME" + "|0&"
+            newUse.child("Value").setValue(tempString)
+            
+        }
+       
         Auth.auth().createUser(withEmail: email, password: pass) { user, error in
             if error == nil && user != nil {
                 print("User created!")
+                
+                
+                
+               // sleep(10)
                 
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                 changeRequest?.displayName = username

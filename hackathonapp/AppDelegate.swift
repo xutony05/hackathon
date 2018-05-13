@@ -27,13 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            
-            if user != nil {
-                
+            if user != nil
+            {
+                if let x = UserDefaults.standard.object(forKey: "loggedMail") as? String
+                {
+                    emailLLL=x
+                }
                 let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
                 self.window?.rootViewController = controller
                 self.window?.makeKeyAndVisible()
-            } else {
+            }
+            else
+            {
+                if let x = UserDefaults.standard.object(forKey: "loggedMail") as? String
+                {
+                    emailLLL=x
+                }
                 let controller = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
                 
                 self.window?.rootViewController = controller

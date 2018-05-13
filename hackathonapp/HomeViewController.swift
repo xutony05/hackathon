@@ -12,56 +12,36 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
+//var postSt = [String : AnyObject]()
+var locationName = [String]()
+var locationXPs = [String]()
+//let locationName = ["Canada's Wonderland", "Theme Park", "Rollercoasters", "test"]
+let locationImage = [UIImage(named: "Wonderland"),UIImage(named: "bahamas")]//,UIImage(named: "maxresdefault"),UIImage(named: "Wonderland")]
+
+var locationDescription = [String]() //["Best theme park in North America!"]//, "An exhilirating watery retreat"]//, "An amazing exploration event in Hawaii", "testing description"]
+
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var ref: DatabaseReference?
     var databaseHandle:DatabaseHandle?
     
-    
-    var locationName = [String]()
-    //let locationName = ["Canada's Wonderland", "Theme Park", "Rollercoasters", "test"]
-    let locationImage = [UIImage(named: "Wonderland")]//UIImage(named: "bahamas")]//,UIImage(named: "maxresdefault"),UIImage(named: "Wonderland")]
-    
-    let locationDescription = ["Best theme park in North America!"]//, "An exhilirating watery retreat"]//, "An amazing exploration event in Hawaii", "testing description"]
-    var flag=false
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        ref = Database.database().reference()
-        
-        var Event = ""
+   
 
+    override func viewDidLoad() {
+            super.viewDidLoad()
         
-        databaseHandle = ref?.observe(.childAdded, with: { (snapshot) in
-            let post = snapshot.value as? [String : AnyObject] ?? [:]
-            var name = post.description.split(separator: "&")[3]
-            var value = post.description.split(separator: "&")[1]
-            if (name == "Recommendation" && value.split(separator: "|")[0] == emailLLL)
-            {
-                Event = String(value.split(separator: "|")[2])
-                var XP = value.split(separator: "|")[3]
-                var Desc = value.split(separator: "|")[4]
-                self.locationName.append(String(Event))
-                self.flag=true
-//                self.locationName[0]=String(Event)
-               
-            }
-            
-        })
-        if flag == true{
-            flag=false
-            locationName.append(String(Event))
-        }
-//        self.locationName.append(String("ass"))
-//         self.locationName.append(String("ass2"))
+    }
+    override func viewDidAppear(_ animated: Bool) {
         
     }
     
-    
-    @IBAction func handleLogout(_ target: UIBarButtonItem) {
-        try! Auth.auth().signOut()
-    }
-   
-    
-   
+//    @IBAction func handleLogout(_ target: UIBarButtonItem) {
+//       // locationName.removeAll()
+//       // locationXPs.removeAll()
+//       // locationDescription.removeAll()
+////        locationImage.removeAll()
+//        try! Auth.auth().signOut()
+//    }
+ 
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -74,6 +54,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.locationName.text = locationName[indexPath.row]
         cell.locationImage.image = locationImage[indexPath.row]
         cell.locationDescription.text = locationDescription[indexPath.row]
+        cell.locationJP.text = locationXPs[indexPath.row]
         //
         cell.contentView.layer.cornerRadius = 4.0
         cell.contentView.layer.borderWidth = 1.0
@@ -85,7 +66,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
-        
         return cell
     }
     

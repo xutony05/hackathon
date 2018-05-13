@@ -11,12 +11,11 @@
 		C62C667920A69E45001B7641 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62C667820A69E45001B7641 /* HomeViewController.swift */; };
 		C62C667B20A6BB56001B7641 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62C667A20A6BB56001B7641 /* CollectionViewCell.swift */; };
 		C62C667D20A73821001B7641 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62C667C20A73821001B7641 /* GoogleService-Info.plist */; };
+		C62C667F20A7D3B7001B7641 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62C667E20A7D3B7001B7641 /* ProfileViewController.swift */; };
 		C6DC679520A67AA800C1C1BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC679420A67AA800C1C1BA /* AppDelegate.swift */; };
-		C6DC679720A67AA800C1C1BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC679620A67AA800C1C1BA /* ViewController.swift */; };
 		C6DC679A20A67AA800C1C1BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DC679820A67AA800C1C1BA /* Main.storyboard */; };
 		C6DC679C20A67AA900C1C1BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DC679B20A67AA900C1C1BA /* Assets.xcassets */; };
 		C6DC679F20A67AA900C1C1BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DC679D20A67AA900C1C1BA /* LaunchScreen.storyboard */; };
-		C6DC67AD20A67B2900C1C1BA /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC67A620A67B2800C1C1BA /* InitialViewController.swift */; };
 		C6DC67AE20A67B2900C1C1BA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC67A720A67B2800C1C1BA /* MenuViewController.swift */; };
 		C6DC67AF20A67B2900C1C1BA /* RoundedWhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC67A820A67B2900C1C1BA /* RoundedWhiteButton.swift */; };
 		C6DC67B020A67B2900C1C1BA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC67A920A67B2900C1C1BA /* SignUpViewController.swift */; };
@@ -30,14 +29,13 @@
 		C62C667820A69E45001B7641 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C62C667A20A6BB56001B7641 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C62C667C20A73821001B7641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C62C667E20A7D3B7001B7641 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C6DC679120A67AA800C1C1BA /* hackathonapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackathonapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DC679420A67AA800C1C1BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C6DC679620A67AA800C1C1BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6DC679920A67AA800C1C1BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6DC679B20A67AA900C1C1BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6DC679E20A67AA900C1C1BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6DC67A020A67AA900C1C1BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C6DC67A620A67B2800C1C1BA /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		C6DC67A720A67B2800C1C1BA /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C6DC67A820A67B2900C1C1BA /* RoundedWhiteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedWhiteButton.swift; sourceTree = "<group>"; };
 		C6DC67A920A67B2900C1C1BA /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -97,15 +95,14 @@
 			isa = PBXGroup;
 			children = (
 				C6DC679420A67AA800C1C1BA /* AppDelegate.swift */,
-				C6DC679620A67AA800C1C1BA /* ViewController.swift */,
 				C6DC67AC20A67B2900C1C1BA /* HelperExtensions.swift */,
-				C6DC67A620A67B2800C1C1BA /* InitialViewController.swift */,
 				C6DC67AA20A67B2900C1C1BA /* LoginViewController.swift */,
 				C6DC67A720A67B2800C1C1BA /* MenuViewController.swift */,
 				C6DC67A820A67B2900C1C1BA /* RoundedWhiteButton.swift */,
 				C6DC67A920A67B2900C1C1BA /* SignUpViewController.swift */,
 				C62C667820A69E45001B7641 /* HomeViewController.swift */,
 				C62C667A20A6BB56001B7641 /* CollectionViewCell.swift */,
+				C62C667E20A7D3B7001B7641 /* ProfileViewController.swift */,
 				C6DC679820A67AA800C1C1BA /* Main.storyboard */,
 				C6DC679B20A67AA900C1C1BA /* Assets.xcassets */,
 				C6DC679D20A67AA900C1C1BA /* LaunchScreen.storyboard */,
@@ -238,10 +235,9 @@
 				C6DC67B120A67B2900C1C1BA /* LoginViewController.swift in Sources */,
 				C6DC67B320A67B2900C1C1BA /* HelperExtensions.swift in Sources */,
 				C6DC67B020A67B2900C1C1BA /* SignUpViewController.swift in Sources */,
-				C6DC67AD20A67B2900C1C1BA /* InitialViewController.swift in Sources */,
 				C6DC67AF20A67B2900C1C1BA /* RoundedWhiteButton.swift in Sources */,
 				C62C667920A69E45001B7641 /* HomeViewController.swift in Sources */,
-				C6DC679720A67AA800C1C1BA /* ViewController.swift in Sources */,
+				C62C667F20A7D3B7001B7641 /* ProfileViewController.swift in Sources */,
 				C6DC679520A67AA800C1C1BA /* AppDelegate.swift in Sources */,
 				C6DC67AE20A67B2900C1C1BA /* MenuViewController.swift in Sources */,
 			);

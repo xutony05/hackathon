@@ -21,6 +21,7 @@ class MenuViewController: UIViewController {
         
         // Add the background gradient
         view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+       
         
         // Do any additional setup after loading the view, typically from a nib.
     }

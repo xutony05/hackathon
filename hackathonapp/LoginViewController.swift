@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 var emailLLL = ""
 class LoginViewController:UIViewController, UITextFieldDelegate {
     
@@ -50,7 +51,37 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         emailField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         passwordField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
-    
+    var ref: DatabaseReference?
+    var databaseHandle:DatabaseHandle?
+    override func viewDidAppear(_ animated: Bool) {
+        ref = Database.database().reference()
+        var Event = ""
+        
+        
+        databaseHandle = ref?.observe(.childAdded, with: { (snapshot) in
+            let post = snapshot.value as? [String : AnyObject] ?? [:]
+            let name = post.description.split(separator: "&")[3]
+            let value = post.description.split(separator: "&")[1]
+            if let x = UserDefaults.standard.object(forKey: "loggedMail") as? String
+            {
+                emailLLL=x
+            }
+            if (name == "Recommendation")// && value.split(separator: "|")[0] == emailLLL)
+            {
+                Event = String(value.split(separator: "|")[2])
+                let XP = value.split(separator: "|")[3]
+                let Desc = value.split(separator: "|")[4]
+                locationName.append(String(Event))
+                locationDescription.append(String(Desc))
+                locationXPs.append(String(XP+" JPs"))
+            }
+            if (name == "User")// && value.split(separator: "|")[0] == emailLLL)
+            {
+                userJPs = Int(value.split(separator: "|")[4])!
+            }
+            
+        })
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -148,6 +179,7 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         
         Auth.auth().signIn(withEmail: email, password: pass) { user, error in
             if error == nil && user != nil {
+                UserDefaults.standard.set(email, forKey: "loggedMail")
                 emailLLL=email
                 self.dismiss(animated: false, completion: nil)
             } else {
