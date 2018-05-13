@@ -71,9 +71,11 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
                 Event = String(value.split(separator: "|")[2])
                 let XP = value.split(separator: "|")[3]
                 let Desc = value.split(separator: "|")[4]
+                let imgUrl = value.split(separator: "|")[5]
                 locationName.append(String(Event))
                 locationDescription.append(String(Desc))
                 locationXPs.append(String(XP+" JPs"))
+                locationImage.append(String(imgUrl))
             }
             if (name == "User")// && value.split(separator: "|")[0] == emailLLL)
             {

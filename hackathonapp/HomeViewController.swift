@@ -11,12 +11,13 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
-
+var passedDesc=""
 //var postSt = [String : AnyObject]()
 var locationName = [String]()
 var locationXPs = [String]()
 //let locationName = ["Canada's Wonderland", "Theme Park", "Rollercoasters", "test"]
-let locationImage = [UIImage(named: "Wonderland"),UIImage(named: "bahamas")]//,UIImage(named: "maxresdefault"),UIImage(named: "Wonderland")]
+var locationImage = [String]()
+//,UIImage(named: "maxresdefault"),UIImage(named: "Wonderland")]
 
 var locationDescription = [String]() //["Best theme park in North America!"]//, "An exhilirating watery retreat"]//, "An amazing exploration event in Hawaii", "testing description"]
 
@@ -51,8 +52,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
-        cell.locationName.text = locationName[indexPath.row]
-        cell.locationImage.image = locationImage[indexPath.row]
+        cell.LocationName.setTitle(locationName[indexPath.row], for: .normal)
+        let url = URL(string: locationImage[indexPath.row])
+        let data = try? Data(contentsOf: url!)
+         cell.locationImage.image =  UIImage(data: data!)
+
+      //  cell.locationImage.image = locationImage[indexPath.row]
         cell.locationDescription.text = locationDescription[indexPath.row]
         cell.locationJP.text = locationXPs[indexPath.row]
         //

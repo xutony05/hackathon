@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        amountJPs.text = String(String(userJPs) + " JPs")
+        amountJPs.text = String(String(userJPs))
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var amountJPs: UILabel!
@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
         locationName.removeAll()
         locationXPs.removeAll()
         locationDescription.removeAll()
+        locationImage.removeAll()
         try! Auth.auth().signOut()
     }
     
